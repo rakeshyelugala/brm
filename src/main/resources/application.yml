@@ -1,3 +1,6 @@
 spring:
     brm:
       url: ${URL:http://202.88.130.85:84/}
+    
+server:
+  port: 8081

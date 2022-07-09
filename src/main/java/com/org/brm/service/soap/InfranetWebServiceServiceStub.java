@@ -27,6 +27,7 @@ import com.org.brm.config.ConfigurationYml;
         private java.util.HashMap faultMessageMap = new java.util.HashMap();
 
         private static int counter = 0;
+        private static String url = null;
 
         private static synchronized java.lang.String getUniqueSuffix(){
             // reset the counter if it is greater than 99999
@@ -52,7 +53,7 @@ import com.org.brm.config.ConfigurationYml;
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices", "opcodeWithFlags"));
+            __operation.setName(new javax.xml.namespace.QName(url, "opcodeWithFlags"));
 	    _service.addOperation(__operation);
 	    
 
@@ -64,7 +65,7 @@ import com.org.brm.config.ConfigurationYml;
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices", "test"));
+            __operation.setName(new javax.xml.namespace.QName(url, "test"));
 	    _service.addOperation(__operation);
 	    
 
@@ -76,7 +77,7 @@ import com.org.brm.config.ConfigurationYml;
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices", "opcode"));
+            __operation.setName(new javax.xml.namespace.QName(url, "opcode"));
 	    _service.addOperation(__operation);
 	    
 
@@ -130,7 +131,7 @@ import com.org.brm.config.ConfigurationYml;
      */
     public InfranetWebServiceServiceStub(org.apache.axis2.context.ConfigurationContext configurationContext) throws org.apache.axis2.AxisFault {
         
-                    this(configurationContext,"http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices" );
+                    this(configurationContext,url);
                 
     }
 
@@ -139,7 +140,7 @@ import com.org.brm.config.ConfigurationYml;
      */
     public InfranetWebServiceServiceStub() throws org.apache.axis2.AxisFault {
         
-                    this("http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices" );
+                    //this("http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices" );
                 
     }
 
@@ -147,7 +148,8 @@ import com.org.brm.config.ConfigurationYml;
      * Constructor taking the target endpoint
      */
     public InfranetWebServiceServiceStub(java.lang.String targetEndpoint) throws org.apache.axis2.AxisFault {
-        this(null,targetEndpoint);
+        this(null,targetEndpoint+"infranetwebsvc/services/BRMBaseServices");
+        url = targetEndpoint+"infranetwebsvc/services/BRMBaseServices";
     }
 
 
@@ -175,7 +177,7 @@ import com.org.brm.config.ConfigurationYml;
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
                org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[0].getName());
-              _operationClient.getOptions().setAction("http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices/InfranetWebService/opcodeWithFlagsRequest");
+              _operationClient.getOptions().setAction(url+"/InfranetWebService/opcodeWithFlagsRequest");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -194,8 +196,8 @@ import com.org.brm.config.ConfigurationYml;
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     opcodeWithFlags0,
-                                                    optimizeContent(new javax.xml.namespace.QName("http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices",
-                                                    "opcodeWithFlags")), new javax.xml.namespace.QName("http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices",
+                                                    optimizeContent(new javax.xml.namespace.QName(url,
+                                                    "opcodeWithFlags")), new javax.xml.namespace.QName(url,
                                                     "opcodeWithFlags"));
                                                 
         //adding SOAP soap_headers
@@ -292,7 +294,7 @@ import com.org.brm.config.ConfigurationYml;
                 throws java.rmi.RemoteException{
 
               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[0].getName());
-             _operationClient.getOptions().setAction("http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices/InfranetWebService/opcodeWithFlagsRequest");
+             _operationClient.getOptions().setAction(url+"/InfranetWebService/opcodeWithFlagsRequest");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -311,8 +313,8 @@ import com.org.brm.config.ConfigurationYml;
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     opcodeWithFlags0,
-                                                    optimizeContent(new javax.xml.namespace.QName("http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices",
-                                                    "opcodeWithFlags")), new javax.xml.namespace.QName("http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices",
+                                                    optimizeContent(new javax.xml.namespace.QName(url,
+                                                    "opcodeWithFlags")), new javax.xml.namespace.QName(url,
                                                     "opcodeWithFlags"));
                                                 
         // adding SOAP soap_headers
@@ -446,7 +448,7 @@ import com.org.brm.config.ConfigurationYml;
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
                org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[1].getName());
-              _operationClient.getOptions().setAction("http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices/InfranetWebService/testRequest");
+              _operationClient.getOptions().setAction(url+"/InfranetWebService/testRequest");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -465,8 +467,8 @@ import com.org.brm.config.ConfigurationYml;
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     test2,
-                                                    optimizeContent(new javax.xml.namespace.QName("http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices",
-                                                    "test")), new javax.xml.namespace.QName("http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices",
+                                                    optimizeContent(new javax.xml.namespace.QName(url,
+                                                    "test")), new javax.xml.namespace.QName(url,
                                                     "test"));
                                                 
         //adding SOAP soap_headers
@@ -563,7 +565,7 @@ import com.org.brm.config.ConfigurationYml;
                 throws java.rmi.RemoteException{
 
               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[1].getName());
-             _operationClient.getOptions().setAction("http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices/InfranetWebService/testRequest");
+             _operationClient.getOptions().setAction(url+"/InfranetWebService/testRequest");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -582,8 +584,8 @@ import com.org.brm.config.ConfigurationYml;
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     test2,
-                                                    optimizeContent(new javax.xml.namespace.QName("http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices",
-                                                    "test")), new javax.xml.namespace.QName("http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices",
+                                                    optimizeContent(new javax.xml.namespace.QName(url,
+                                                    "test")), new javax.xml.namespace.QName(url,
                                                     "test"));
                                                 
         // adding SOAP soap_headers
@@ -715,7 +717,7 @@ import com.org.brm.config.ConfigurationYml;
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
                org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[2].getName());
-              _operationClient.getOptions().setAction("http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices/InfranetWebService/opcodeRequest");
+              _operationClient.getOptions().setAction(url+"/InfranetWebService/opcodeRequest");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -734,8 +736,8 @@ import com.org.brm.config.ConfigurationYml;
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     opcode4,
-                                                    optimizeContent(new javax.xml.namespace.QName("http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices",
-                                                    "opcode")), new javax.xml.namespace.QName("http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices",
+                                                    optimizeContent(new javax.xml.namespace.QName(url,
+                                                    "opcode")), new javax.xml.namespace.QName(url,
                                                     "opcode"));
                                                 
         //adding SOAP soap_headers
@@ -832,7 +834,7 @@ import com.org.brm.config.ConfigurationYml;
                 throws java.rmi.RemoteException{
 
               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[2].getName());
-             _operationClient.getOptions().setAction("http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices/InfranetWebService/opcodeRequest");
+             _operationClient.getOptions().setAction(url+"/InfranetWebService/opcodeRequest");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -851,8 +853,8 @@ import com.org.brm.config.ConfigurationYml;
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     opcode4,
-                                                    optimizeContent(new javax.xml.namespace.QName("http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices",
-                                                    "opcode")), new javax.xml.namespace.QName("http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices",
+                                                    optimizeContent(new javax.xml.namespace.QName(url,
+                                                    "opcode")), new javax.xml.namespace.QName(url,
                                                     "opcode"));
                                                 
         // adding SOAP soap_headers
@@ -1011,7 +1013,7 @@ import com.org.brm.config.ConfigurationYml;
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                "http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices",
+                url,
                 "test",
                 "brm");
 
@@ -1062,7 +1064,7 @@ import com.org.brm.config.ConfigurationYml;
                   if (serializeType){
                
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices");
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,url);
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
                            namespacePrefix+":test",
@@ -1082,7 +1084,7 @@ import com.org.brm.config.ConfigurationYml;
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals("http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices")){
+            if(namespace.equals(url)){
                 return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -1364,7 +1366,7 @@ import com.org.brm.config.ConfigurationYml;
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                "http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices",
+                url,
                 "testResponse",
                 "brm");
 
@@ -1445,7 +1447,7 @@ import com.org.brm.config.ConfigurationYml;
                   if (serializeType){
                
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices");
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,url);
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
                            namespacePrefix+":testResponse",
@@ -1483,7 +1485,7 @@ import com.org.brm.config.ConfigurationYml;
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals("http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices")){
+            if(namespace.equals(url)){
                 return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -1800,7 +1802,7 @@ import com.org.brm.config.ConfigurationYml;
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                "http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices",
+                url,
                 "opcodeWithFlags",
                 "brm");
 
@@ -1971,7 +1973,7 @@ import com.org.brm.config.ConfigurationYml;
                   if (serializeType){
                
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices");
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,url);
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
                            namespacePrefix+":opcodeWithFlags",
@@ -2058,7 +2060,7 @@ import com.org.brm.config.ConfigurationYml;
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals("http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices")){
+            if(namespace.equals(url)){
                 return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -2482,7 +2484,7 @@ import com.org.brm.config.ConfigurationYml;
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                "http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices",
+                url,
                 "opcodeWithFlagsResponse",
                 "brm");
 
@@ -2563,7 +2565,7 @@ import com.org.brm.config.ConfigurationYml;
                   if (serializeType){
                
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices");
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,url);
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
                            namespacePrefix+":opcodeWithFlagsResponse",
@@ -2601,7 +2603,7 @@ import com.org.brm.config.ConfigurationYml;
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals("http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices")){
+            if(namespace.equals(url)){
                 return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -2918,7 +2920,7 @@ import com.org.brm.config.ConfigurationYml;
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                "http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices",
+                url,
                 "opcode",
                 "brm");
 
@@ -3059,7 +3061,7 @@ import com.org.brm.config.ConfigurationYml;
                   if (serializeType){
                
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices");
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,url);
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
                            namespacePrefix+":opcode",
@@ -3133,7 +3135,7 @@ import com.org.brm.config.ConfigurationYml;
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals("http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices")){
+            if(namespace.equals(url)){
                 return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -3520,7 +3522,7 @@ import com.org.brm.config.ConfigurationYml;
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                "http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices",
+                url,
                 "opcodeResponse",
                 "brm");
 
@@ -3601,7 +3603,7 @@ import com.org.brm.config.ConfigurationYml;
                   if (serializeType){
                
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices");
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,url);
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
                            namespacePrefix+":opcodeResponse",
@@ -3639,7 +3641,7 @@ import com.org.brm.config.ConfigurationYml;
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals("http://202.88.130.85:84/infranetwebsvc/services/BRMBaseServices")){
+            if(namespace.equals(url)){
                 return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();

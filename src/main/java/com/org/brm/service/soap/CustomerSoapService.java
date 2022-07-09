@@ -53,7 +53,7 @@ public class CustomerSoapService {
 		String xmlString = stringBuffer.toString();
 		
 		//OpcodeOuter stub = new OpcodeOuter();
-		InfranetWebServiceServiceStub stub = new InfranetWebServiceServiceStub();
+		InfranetWebServiceServiceStub stub = new InfranetWebServiceServiceStub(configyml.getUrl());
 		Opcode opcode = new Opcode();
 		opcode.setOpcode(opCodeString);
 		opcode.setInputXML(xmlString);

@@ -48,6 +48,7 @@ public class CustomerService {
 				logger.info(customerInfoJson);
 				//responseEntity = new ResponseEntity<String>(customerInfoJson,HttpStatus.OK);
 				customerResponse.setCustomerResponse(customerInfoJson);
+				customerResponse.setCustomerAccountNo(accountNo);
 				customerResponse.setStatusCode(200);
 			}	
 			else
